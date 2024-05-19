@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <script type="text/javascript" src="embed.min.js"></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
+    <style>
+        .bungee {
+    font-family: "Bungee", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    }
+    </style>
+    <title>UnikaSMP</title>
+    <script src="/tailwind.js"></script>
+    <script>
+function goFullscreen() {
+  var elem = document.documentElement; // Fullscreen the entire document
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+}
+    </script>
+</head>
+<body class="w-screen h-screen">
+    <div class="w-full h-full">
+        <div class="flex justify-center items-center w-full h-full bg-[url(https://craftoria.ddns.net/launcher.png)] bg-cover text-white ">
+                <div class="rounded-sm ring-1 ring-gray-500 p-5 bg-black bg-opacity-70">
+
+
+                    <div id="embed"></div>
+                    <script>var embed = new ServerEmbed(document.getElementById("embed"), "600px");embed.ping("wss://craftoria.ddns.net");</script>
+                    <script>setInterval(function () {embed.ping("wss://craftoria.ddns.net")},60000)</script>
+                    <div class="font-mono text-left pt-2 pb-4">
+                        <h1 class="text-3xl font-bold">NUWE GOED</h1>
+                        <h1 class="text-2xl">Gebruik /sethome om n home te stel.</h1>
+                        <h1 class="text-2xl">Gebruik /home om daarnatoe te teleport.</h1>
+                        <h1 class="text-2xl">Ek werk aan n nuwe gamemode!</h1>
+                        <h1 class="text-2xl pt-4">Onthou om die regte naam in te tik!</h1>
+                    </div>
+                    <div class="rounded-md w-full p-2 bungee text-3xl bg-lime-500 text-black cursor-pointer text-center transition ease-in-out
+                    hover:bg-black hover:text-lime-500" onclick='goFullscreen();window.location.href = "/client.html#justlaunched"'><h1>Launch</h1></div>
+                    <h1 class="text-center w-full font-mono font-semibold pt-4">Gemaak deur Victor.</h1>
+                </div>
+                
+        </div>
+
+</body>
+</html>

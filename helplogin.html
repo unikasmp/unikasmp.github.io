@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title>Belangrik!</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
+        <style>
+            .bungee {
+  font-family: "Bungee", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+        </style>
+    </head>
+    <body>
+        <div class="flex justify-center items-center w-full h-full bg-gradient-to-bl from-orange-500 to-red-200 bg-cover text-white">
+            <div class="rounded-sm ring-1 ring-gray-500 p-5 bg-black bg-opacity-70">
+                <div class="flex">
+                    
+                    <h1 class="bungee text-6xl text-right text-red-500 flex w-full rounded-sm font-bold w-full">BELANGRIK</h1>
+                </div>
+                <div class="font-mono text-left pt-2 pb-4">
+                    <h1 class="text-3xl font-bold">Hoe om n password te gebruik:</h1>
+                    <h1 class="text-2xl">Gebruik /register [PASSWORD] [PASSWORD].</h1>
+                    <h1 class="text-2xl">As jy dit gedoen het gebruik /login [PASSWORD].</h1>
+                    <h1 class="text-2xl pt-4">Moet nie jou password verloor nie!</h1>
+                </div>
+                <div class="rounded-md w-full p-2 bungee text-3xl bg-lime-500 text-black cursor-pointer text-center transition ease-in-out
+                hover:bg-black hover:text-lime-500" onclick='localStorage.setItem("acceptedlogin","e");setTimeout(() => {window.location.href="/"},100)'><h1>OK, ek verstaan.</h1></div>
+            </div>
+            
+        </div>
+    </body>
+</html>

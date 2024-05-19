@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+
+<html lang="en-ZA">
+<head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pako/2.0.3/pako.min.js"></script>
+  
+    <script type="text/javascript" src="embed.min.js"></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
+    <style>
+        .bungee {
+    font-family: "Bungee", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    }
+    </style>
+    <title>UnikaSMP</title>
+    <script src="tailwind.js"></script>
+    <script>
+		function fullScreen(theURL) {
+window.open(theURL, '', 'fullscreen=yes, scrollbars=auto');
+}
+function goFullscreen() {
+  var elem = document.documentElement; // Fullscreen the entire document
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+}
+    </script>
+    <link rel="preload" href="/client.html" as="fetch" />
+</head>
+<body class="w-screen h-screen bg-gray-800">
+    <div class="w-full h-full">
+        <div class="flex justify-center items-center w-full h-full bg-cover text-white transition ease-in-out duration-500" id="fsc" style="">
+                <div class="rounded-sm ring-1 ring-gray-500 bg-black bg-opacity-80 opacity-0 transition ease-in-out duration-700 translate-y-32 min-w-[540px] min-h-[398px]" id="puw">
+                    <div class="flex w-full p-2 bg-white bg-opacity-20 space-x-3 bungee transition-all ease-in-out duration-500">
+                      <div id="us" class="p-2 text-center w-1/3 cursor-pointer hover:text-blue-500 transition ease-in-out bg-black bg-opacity-5 rounded-lg
+                      " style="" onclick="swbt('us')">
+                        <h1 class="text-3xl">Speel</h1>
+                      </div>
+
+                      <div id="nu" class="p-2 text-center w-1/3 cursor-pointer hover:text-blue-500 transition ease-in-out animate-bounce bg-black bg-opacity-5 rounded-lg
+                      " style=""                onclick="swbt('nu')">
+                        <h1 class="text-3xl ">Nuus</h1>
+                      </div>
+
+                      <div id="ko" class="p-2 text-center w-1/3 cursor-pointer hover:text-blue-500 transition ease-in-out bg-black bg-opacity-5 rounded-lg
+                      " style=""                onclick="swbt('ko')">
+                        <h1 class="text-3xl">Kontak</h1>
+                      </div>
+                    </div>
+
+                    <div id="Dnu" class="w-full h-full p-5">
+                      <h1 class="text-5xl font-bold pb-3">NUUS</h1>
+                      
+
+                      <h1 class="text-2xl">Login stelsel</h1>
+                      <h1 class="text-lg text-wrap max-w-[420px]">Ek werk nou aan n beter login stelsel, want die ander enes het mense die hele tyd uitgeskop.</h1>
+                      <h1 class="text-2xl pt-1">SkyBlock</h1>
+                      <h1 class="text-lg text-wrap max-w-[420px]">Ek is seker julle almal weet wat SkyBlock is. Die goeie nuus is dit kom na die UnikaSMP toe later!</h1>
+                    </div>
+                    <div id="Dko" class="w-full h-full p-5">
+                      <h1 class="text-5xl font-bold pb-3">KONTAK VIR MY</h1>
+                      <h1 class="text-xl text-[#5865F2] font-mono">Se hallo vir my by die skool. Eenvoudig.</h1>
+                    </div>
+                    <div class="w-full h-full p-5"  id="Dus">
+                      <h1 class="text-5xl font-bold pb-3">UNIKASMP</h1>
+                      <h1 class="font-mono font-semibold text-2xl" id="wtx">Welkom! Klik op 'Speel' om te begin!</h1>
+
+                      <script>setInterval(function () {embed.ping("wss://craftoria.ddns.net")},60000)</script>
+                      <div class="font-mono text-left pt-2 pb-4">
+                          <h1 class="text-2xl pt-8 opacity-50">Onthou om die regte naam in te tik!</h1>
+                      </div>
+                      <div class="rounded-md w-full p-2 bungee text-3xl bg-lime-500 text-black cursor-pointer text-center transition ease-in-out
+                      opacity-0 duration-500 hover:bg-black hover:text-lime-500" onclick='launch();'
+                      id="lbt"><h1>SPEEL</h1></div>
+                      <h1 class="text-center w-full font-mono font-semibold pt-4">Gemaak deur Victor.</h1>
+                    </div>
+                </div>
+                
+        </div>
+                    <script>
+                      function swbt(name) {
+                        els=['us','nu','ko']
+                        let i = 0;
+
+                        while (i < els.length) {
+                            var el = document.getElementById(els[i])
+                            el.style = ''
+                            var el = document.getElementById("D"+els[i])
+                            el.style='display:none'
+                            i++;
+                        }
+                        var el = document.getElementById(name)
+                        el.style = 'color:#2fb82f'
+                        var el = document.getElementById("D"+name)
+                        el.style = ''
+                        if (name=='nu') {
+                          localStorage.setItem('unikasmp.newsver',NEWSVER);
+                          elem = document.getElementById('nu');
+                          if (elem.classList.contains('animate-bounce')) {
+                            elem.classList.remove('animate-bounce')
+                          };
+                        }
+                      }
+                      swbt('us')
+
+                      const NEWSVER = '!1!';
+                      var cv = localStorage.getItem('unikasmp.newsver');
+                      if (cv!=null) {
+                        if (cv==NEWSVER) {
+                          console.log('rming')
+                          elem = document.getElementById('nu')
+                          elem.classList.remove('animate-bounce')
+                        } else {
+                          console.log(cv)
+                        }
+                      }
+
+                    </script>
+<script>
+function cb() {
+var element = document.getElementById('fsc');
+
+const backgroundImages = [
+'l2.png','l3.png','l4.png','l5.png','l6.png','l7.png','l8.png','l9.png','l10.png','l11.png'
+    // Add more image URLs as needed
+];
+
+// Function to get a random background image URL
+function getRandomBackgroundImage() {
+    const randomIndex = Math.floor(Math.random() * backgroundImages.length);
+    return backgroundImages[randomIndex];
+}
+
+// Get a random background image URL
+const bg = getRandomBackgroundImage();
+
+// Construct the class name with the random background image URL
+const bgClassName = `url("${bg}")`;
+
+// Add the class to the element
+// element.classList.add(bgClassName);
+element.style.backgroundImage = bgClassName;
+};
+
+cb();
+
+
+
+
+
+
+
+
+var storedUser = localStorage.getItem('acceptedlogin');
+if (storedUser !== null) {
+
+
+} else {
+  localStorage.setItem("acceptedlogin","e")
+ // window.location.href = '/helplogin.html'
+}
+function bgsa() {
+setTimeout(() => {
+  var element = document.getElementById('puw');
+element.classList.remove('opacity-0');
+element.classList.remove('translate-y-32');
+
+setTimeout(() => {
+  var element = document.getElementById('lbt');
+element.classList.remove('opacity-0');
+}, 500);
+
+}, 50);
+
+}
+
+setTimeout(() => {
+  bgsa()
+}, 50);
+
+function launch(){
+  var element = document.getElementById('puw');
+element.classList.add('opacity-0');
+element.classList.add('-translate-y-64');
+
+
+setTimeout(() => {
+  var element = document.getElementById('fsc');
+  element.classList.add('opacity-0');
+}, 500);
+  setTimeout(() => {window.location.href="client.html#justlaunched"},1700)
+}
+
+</script>
+<script>
+  //const zlib = require('zlib');
+  var storedUser = localStorage.getItem('_eaglercraftX.p');
+  if (storedUser !== null) {
+    var compressedData = atob(storedUser)
+    console.log(compressedData)
+
+    const uint8Array = new Uint8Array(compressedData.length);
+  for (let i = 0; i < compressedData.length; i++) {
+    uint8Array[i] = compressedData.charCodeAt(i);
+  }
+
+  // Decompress the data
+  const decompressedData = pako.inflate(uint8Array);
+  console.log(decompressedData);
+  let byteString = "b'";
+  for (let i = 0; i < decompressedData.length; i++) {
+    const byteValue = decompressedData[i];
+    if (byteValue >= 32 && byteValue <= 126 && byteValue !== 92) { // printable ASCII characters
+      byteString += String.fromCharCode(byteValue);
+    } else { // non-printable characters
+      byteString += "\\x" + byteValue.toString(16).padStart(2, "0");
+    }
+  }
+  byteString += "'";
+
+  console.log(byteString);
+function extractUsername(byteString) {
+  // Remove the leading "b'" and trailing "'"
+  const trimmedString = byteString.slice(2, -1);
+
+  // Create a regular expression to match the username
+  const regex = /\\x08username\\x00\\x([0-9a-fA-F]{2})([^\\]+)/;
+  
+  // Match the regex against the byte string
+  const match = trimmedString.match(regex);
+
+  // Extract the username from the match
+  if (match && match[2]) {
+    const usernameLength = parseInt(match[1], 16) * 2; // Convert hex length to byte length
+    return match[2].slice(0, usernameLength); // Extract the username based on the length
+  } else {
+    return null;
+  }
+}
+if ( extractUsername(byteString) != null ) {
+  var bs = extractUsername(byteString);
+  var element = document.getElementById('wtx');
+  element.innerText = 'Welkom terug '+bs+'!';
+}}
+</script>
+</body>
+</html>
