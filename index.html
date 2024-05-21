@@ -2,34 +2,6 @@
 
 <html lang="en-ZA">
 <head>
-  <style>
-    @font-face {
-      font-family: "mcf";
-      src: url("webfont.woff") format('woff');
-    }
-    
-    @font-face {
-      font-family: "mcf";
-      src: url("webfont.woff") format('woff');
-      font-weight: bold;
-    }
-    
-    @font-face {
-      font-family: "mcf";
-      src: url("webfont.woff") format('woff');
-      font-weight: bold;
-      font-style: italic;
-    }
-    
-    @font-face {
-      font-family: "mcf";
-      src: url("webfont.woff") format('woff');
-      font-style: italic;
-    }
-    .minefont {
-      font-family: mcf
-    }
-      </style>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pako/2.0.3/pako.min.js"></script>
   
     <script type="text/javascript" src="embed.min.js"></script>
@@ -69,27 +41,22 @@ function goFullscreen() {
 </head>
 <body class="w-screen h-screen bg-gray-800">
     <div class="w-full h-full">
-        <div class="flex flex-col justify-center items-center w-full h-full bg-cover text-white transition ease-in-out duration-500" id="fsc" style="">
-  
-                <div class="rounded-sm ring-1 ring-gray-500 bg-black bg-opacity-80 opacity-0 transition ease-in-out duration-700 translate-y-32 min-w-[540px] min-h-[358px]
-                shadow-black shadow-md" id="puw">
+        <div class="flex justify-center items-center w-full h-full bg-cover text-white transition ease-in-out duration-500" id="fsc" style="">
+                <div class="rounded-sm ring-1 ring-gray-500 bg-black bg-opacity-80 opacity-0 transition ease-in-out duration-700 translate-y-32 min-w-[540px] min-h-[398px]" id="puw">
                     <div class="flex w-full p-2 bg-white bg-opacity-20 space-x-3 bungee transition-all ease-in-out duration-500">
                       <div id="us" class="p-2 text-center w-1/3 cursor-pointer hover:text-blue-500 transition ease-in-out bg-black bg-opacity-5 rounded-lg
-                      flex justify-center items-center flex-col group" style="" onclick="swbt('us')">
-                      <img src="android-chrome-192x192.png" class="w-[34px] -translate-y-16 transition ease-in-out group-hover:-translate-y-20"">
-                        <h1 class="text-3xl fixed">Speel</h1>
+                      " style="" onclick="swbt('us')">
+                        <h1 class="text-3xl">Speel</h1>
                       </div>
 
                       <div id="nu" class="p-2 text-center w-1/3 cursor-pointer hover:text-blue-500 transition ease-in-out animate-bounce bg-black bg-opacity-5 rounded-lg
-                      flex justify-center items-center flex-col group" style=""                onclick="swbt('nu')">
-                      <img src="news.png" class="w-[34px] -translate-y-16 transition ease-in-out group-hover:-translate-y-20"">
-                        <h1 class="text-3xl fixed">Nuus</h1>
+                      " style=""                onclick="swbt('nu')">
+                        <h1 class="text-3xl ">Nuus</h1>
                       </div>
 
                       <div id="ko" class="p-2 text-center w-1/3 cursor-pointer hover:text-blue-500 transition ease-in-out bg-black bg-opacity-5 rounded-lg
-                      flex justify-center items-center flex-col group" style=""                onclick="swbt('ko')">
-                      <img src="contact.png" class="w-[34px] -translate-y-16 transition ease-in-out group-hover:-translate-y-20">
-                        <h1 class="text-3xl fixed">Kontak</h1>
+                      " style=""                onclick="swbt('ko')">
+                        <h1 class="text-3xl">Kontak</h1>
                       </div>
                     </div>
 
@@ -107,23 +74,15 @@ function goFullscreen() {
                       <h1 class="text-xl text-[#5865F2] font-mono">Se hallo vir my by die skool. Eenvoudig.</h1>
                     </div>
                     <div class="w-full h-full p-5"  id="Dus">
-
+                      <h1 class="text-5xl font-bold pb-3">UNIKASMP</h1>
+                      <h1 class="font-mono font-semibold text-2xl" id="wtx">Welkom! Klik op 'Speel' om te begin!</h1>
 
                       <script>setInterval(function () {embed.ping("wss://craftoria.ddns.net")},60000)</script>
-                      <div id="title" class="transition ease-in-out w-full flex-col justify-center items-center
-                      duration-1000 opacity-0 delay-200 text-5xl minefont space-y-2 pb-16">
-                      <div class="flex justify-center items-center space-x-8">
-                      <img src="android-chrome-192x192.png" class="w-[48px]">
-                      <h1 class=" " id="title">Unika<tag class="">SMP</tag></h1>
+                      <div class="font-mono text-left pt-2 pb-4">
+                          <h1 class="text-2xl pt-8 opacity-50">Onthou om die regte naam in te tik!</h1>
                       </div>
-                      <h1 class="text-xl opacity-50 w-full text-center" id="wtx">Onthou om die regte naam in te tik!</h1>
-                      
-
-                    </div>
-                      
-
                       <div class="rounded-md w-full p-2 bungee text-3xl bg-lime-500 text-black cursor-pointer text-center transition ease-in-out
-                      opacity-0 duration-500 hover:bg-black hover:text-lime-500 shadow-lime-700 ring-lime-600 ring-1 shadow-xl hover:shadow-2xl hover:shadow-white" onclick='launch();'
+                      opacity-0 duration-500 hover:bg-black hover:text-lime-500" onclick='launch();'
                       id="lbt"><h1>SPEEL</h1></div>
                       <h1 class="text-center w-full font-mono font-semibold pt-4">Gemaak deur Victor.</h1>
                     </div>
@@ -146,7 +105,6 @@ function goFullscreen() {
                         el.style = 'color:#2fb82f'
                         var el = document.getElementById("D"+name)
                         el.style = ''
-
                         if (name=='nu') {
                           localStorage.setItem('unikasmp.newsver',NEWSVER);
                           elem = document.getElementById('nu');
@@ -218,9 +176,7 @@ setTimeout(() => {
   var element = document.getElementById('puw');
 element.classList.remove('opacity-0');
 element.classList.remove('translate-y-32');
-var element = document.getElementById('title');
 
-element.classList.remove('opacity-0');
 setTimeout(() => {
   var element = document.getElementById('lbt');
 element.classList.remove('opacity-0');
