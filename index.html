@@ -73,19 +73,33 @@ function goFullscreen() {
                       <h1 class="text-5xl font-bold pb-3">KONTAK VIR MY</h1>
                       <h1 class="text-xl text-[#5865F2] font-mono">Se hallo vir my by die skool. Eenvoudig.</h1>
                     </div>
+
                     <div class="w-full h-full p-5"  id="Dus">
-                      <h1 class="text-5xl font-bold pb-3">UNIKASMP</h1>
-                      <h1 class="font-mono font-semibold text-2xl" id="wtx">Welkom! Klik op 'Speel' om te begin!</h1>
+
 
                       <script>setInterval(function () {embed.ping("wss://craftoria.ddns.net")},60000)</script>
-                      <div class="font-mono text-left pt-2 pb-4">
-                          <h1 class="text-2xl pt-8 opacity-50">Onthou om die regte naam in te tik!</h1>
+
+                      <div id="title" class="transition ease-in-out w-full flex-col justify-center items-center
+                      duration-1000 opacity-0 delay-200 text-5xl minefont space-y-2 pb-16">
+                      <div class="flex justify-center items-center space-x-8 pt-8">
+                      <img src="android-chrome-192x192.png" class="w-[48px] hover:animate-spin cursor-pointer  animate-[fadeIn_300ms_ease-out_900ms_forwards] transition ease-in-out">
+                      <h1 class="font-sans font-bold" id="title">Unika<tag class="">SMP</tag></h1>
                       </div>
-                      <div class="rounded-md w-full p-2 bungee text-3xl bg-lime-500 text-black cursor-pointer text-center transition ease-in-out
-                      opacity-0 duration-500 hover:bg-black hover:text-lime-500" onclick='launch();'
+                      <h1 class="text-xl opacity-50 w-full text-center" id="wtx">Onthou om die regte naam in te tik!</h1>
+                      
+
+                    </div>
+                      
+
+                      <div class="rounded-md w-full p-2 bungee text-3xl bg-lime-500 text-black cursor-pointer text-center transition ease-in-out duration-500 hover:bg-black
+                       hover:text-lime-500 shadow-lime-700 ring-lime-600 ring-1 shadow-xl hover:shadow-2xl hover:shadow-white" onclick='launch();'
+
                       id="lbt"><h1>SPEEL</h1></div>
                       <h1 class="text-center w-full font-mono font-semibold pt-4">Gemaak deur Victor.</h1>
                     </div>
+
+
+
                 </div>
                 
         </div>
@@ -182,6 +196,9 @@ setTimeout(() => {
 element.classList.remove('opacity-0');
 }, 500);
 
+var element = document.getElementById('title');
+element.classList.remove('opacity-0');
+
 }, 50);
 
 }
@@ -254,6 +271,13 @@ if ( extractUsername(byteString) != null ) {
   var element = document.getElementById('wtx');
   element.innerText = 'Welkom terug '+bs+'!';
 }}
+
+function pings () {
+  var x = ping("wss://craftoria.ddns.net", "UnikaSMP", "UnikaSMP")
+  console.log(x)
+
+}
+pings();
 </script>
 </body>
 </html>
