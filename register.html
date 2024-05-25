@@ -3,34 +3,41 @@
 <html lang="en-ZA">
 <head>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pako/2.0.3/pako.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
   <style>
 @font-face {
   font-family: "mcf";
-  src: url("webfont.woff") format('woff');
+  src: url("static/webfont.woff") format('woff');
 }
 
 @font-face {
   font-family: "mcf";
-  src: url("webfont.woff") format('woff');
+  src: url("static/webfont.woff") format('woff');
   font-weight: bold;
 }
 
 @font-face {
   font-family: "mcf";
-  src: url("webfont.woff") format('woff');
+  src: url("static/webfont.woff") format('woff');
   font-weight: bold;
   font-style: italic;
 }
 
 @font-face {
   font-family: "mcf";
-  src: url("webfont.woff") format('woff');
+  src: url("static/webfont.woff") format('woff');
   font-style: italic;
 }
 .minefont {
   font-family: mcf
 }
   </style>
+
+
+
+
     <script type="text/javascript" src="embed.min.js"></script>
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -46,7 +53,7 @@
     }
     </style>
     <title>UnikaSMP</title>
-    <script src="tailwind.js"></script>
+    <script src="static/tailwind.js"></script>
 
 
 
@@ -69,19 +76,112 @@
 
 </head>
 <body class="w-screen h-screen bg-gray-800">
-    <div class="w-full h-full bg-[url(dirtbg.webp)] flex justify-center items-center">
-        <div>
+    <div class="w-full h-full bg-[url(static/dirtbg.webp)] flex justify-center items-center" class="">
+        <form id="regis" class="hidden">
             <h1 class="text-5xl text-white minefont pb-5">Maak 'n wagwoord</h1>
+            <input type="text" class="w-full p-2 text-2xl bg-black ring-2 ring-gray-400 text-gray-100 minefont focus:outline-none cursor-not-allowed"
+            placeholder="Naam" name="password" readonly id="regname">
+            <h1 class="pb-5"></h1>
             <input type="text" class="w-full p-2 text-2xl bg-black ring-2 ring-gray-400 text-white minefont focus:outline-none"
-            placeholder="Wagwoord" autofocus>
+            placeholder="Wagwoord" autofocus name="password" id="registerpass">
             <h1 class="p-2"></h1>
-            <button class="text-2xl minecraft-btn mx-auto w-full text-center text-white truncate p-1 border-2 border-b-4 hover:text-yellow-200">
-                Gebruik dit (Permanent)
-            </button>
-        </div>
+            <input type="submit" value="Gebruik dit (Permanent)" class="text-2xl minecraft-btn mx-auto w-full text-center text-white truncate p-1 border-2 border-b-4 hover:text-yellow-200">
+            <h1 class="pb-12"></h1>
+            <div class="text-2xl minecraft-btn mx-auto text-center text-white truncate p-1 border-2 border-b-4 hover:text-yellow-200 cursor-pointer"
+            onclick="localStorage.setItem('reloadEntirePage','true')">
+              <h1>Kies 'n ander naam</h1>
+            </div>
+          </form>
+        <form id="login" class="hidden">
+            <h1 class="text-5xl text-white minefont pb-5">Tik in jou wagwoord</h1>
+            <input type="text" class="w-full p-2 text-2xl bg-black ring-2 ring-gray-400 text-gray-100 minefont focus:outline-none cursor-not-allowed"
+            placeholder="Naam" name="password" readonly id="logname">
+            <h1 class="pb-5"></h1>
+            <input type="text" class="w-full p-2 text-2xl bg-black ring-2 ring-gray-400 text-white minefont focus:outline-none"
+            placeholder="Wagwoord" name="password" id="loginpass">
+            <h1 class="p-2"></h1>
+            <input type="submit" value="Gaan voort" class="text-2xl minecraft-btn mx-auto w-full text-center text-white truncate p-1 border-2 border-b-4 hover:text-yellow-200">
+            <h1 class="pb-12"></h1>
+            <div class="text-2xl minecraft-btn mx-auto text-center text-white truncate p-1 border-2 border-b-4 hover:text-yellow-200 cursor-pointer"
+            onclick="localStorage.setItem('reloadEntirePage','true')">
+              <h1>Kies 'n ander naam</h1>
+            </div>
+          </form>
+
                 
     </div>
 
+    <script>
 
+      const user = localStorage.getItem("RawUserName")
+
+      const socket = new WebSocket('wss://craftoria.ddns.net:8443/ws');
+      
+      function sendm(dat){
+        socket.send(JSON.stringify(dat));
+        console.log("sent "+dat);
+      }
+      socket.onopen = function(event) {
+          console.log('WebSocket connection opened');
+          sendm(["checkuser",user]);
+      };
+
+      socket.onmessage = function(event) {
+          event.data = JSON.parse(event.data);
+          console.log('Received message:', event.data);
+          var recv = event.data;
+          
+          if (recv.trim() == '"userIsRegistered"') {
+            document.getElementById("login").classList.remove('hidden');
+            document.getElementById("logname").value = user;
+          } else if (recv.trim() == '"userIsNotRegistered"') {
+            document.getElementById("regis").classList.remove('hidden')
+            document.getElementById("regname").value = user;
+          } else if (recv.trim() == '"registeredSuccess"') {
+            location.reload();
+          }else if (recv.trim().startsWith('"TOKEN:')) {
+            var recv = recv.trim().replace('"','')
+            var recv = recv.trim().replace('TOKEN:','')
+            var recv = recv.trim().replace('"','')
+            console.log(recv)
+            localStorage.setItem("loginToken",recv)
+            toastr.success('Regte wagwoord!')
+           }else if (recv.trim() == '"invalidLogin"') {
+            toastr.error('Verkeerde wagwoord!')
+           }
+      };
+
+      socket.onclose = function(event) {
+          console.log('WebSocket connection closed');
+      };
+
+      function handleSubmit(event) {
+            event.preventDefault(); // Prevent the form from submitting via HTTP
+            
+            const messageInput = document.getElementById('registerpass');
+            var val = messageInput.value
+            if (val.length < 8) {
+              toastr.error("Maak jou wagwoord 8 karakters of langer.")
+            } else {
+            sendm(["register",user,messageInput.value])
+            }
+            
+            
+            
+        }
+        document.getElementById('regis').addEventListener('submit', handleSubmit);
+
+        function handleSubmit2(event) {
+            event.preventDefault(); // Prevent the form from submitting via HTTP
+            
+            const messageInput = document.getElementById('loginpass');
+            sendm(["login",user,messageInput.value])
+            
+            
+            
+        }
+        document.getElementById('login').addEventListener('submit', handleSubmit2);
+
+  </script>
 </body>
 </html>
