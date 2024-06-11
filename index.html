@@ -1,13 +1,11 @@
 <!DOCTYPE html>
-
-<html lang="en-ZA">
+<html lang="en" class="bg-black">
 <head>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pako/2.0.3/pako.min.js"></script>
-  
-    <script type="text/javascript" src="embed.min.js"></script>
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pako/2.0.3/pako.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>unikaSMP</title>
+    <script src="tailwind.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
@@ -18,268 +16,123 @@
     font-style: normal;
     }
     </style>
-    <title>UnikaSMP</title>
-    <script src="tailwind.js"></script>
-    <script>
-		function fullScreen(theURL) {
-window.open(theURL, '', 'fullscreen=yes, scrollbars=auto');
-}
-function goFullscreen() {
-  var elem = document.documentElement; // Fullscreen the entire document
-  if (elem.requestFullscreen) {
-    elem.requestFullscreen();
-  } else if (elem.mozRequestFullScreen) { /* Firefox */
-    elem.mozRequestFullScreen();
-  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
-    elem.webkitRequestFullscreen();
-  } else if (elem.msRequestFullscreen) { /* IE/Edge */
-    elem.msRequestFullscreen();
-  }
-}
-    </script>
-    <link rel="preload" href="/client.html" as="fetch" />
-</head>
-<body class="w-screen h-screen bg-gray-800">
-    <div class="w-full h-full">
-        <div class="flex justify-center items-center w-full h-full bg-cover text-white transition ease-in-out duration-500" id="fsc" style="">
-                <div class="rounded-sm ring-1 ring-gray-500 bg-black bg-opacity-80 opacity-0 transition ease-in-out duration-700 translate-y-32 min-w-[540px] min-h-[398px]" id="puw">
-                    <div class="flex w-full p-2 bg-white bg-opacity-20 space-x-3 bungee transition-all ease-in-out duration-500">
-                      <div id="us" class="p-2 text-center w-1/3 cursor-pointer hover:text-blue-500 transition ease-in-out bg-black bg-opacity-5 rounded-lg
-                      " style="" onclick="swbt('us')">
-                        <h1 class="text-3xl">Speel</h1>
-                      </div>
-
-                      <div id="nu" class="p-2 text-center w-1/3 cursor-pointer hover:text-blue-500 transition ease-in-out animate-bounce shadow-blue-500 shadow-2xl bg-black bg-opacity-5 rounded-lg
-                      " style=""                onclick="swbt('nu')">
-                        <h1 class="text-3xl ">Nuus</h1>
-                      </div>
-
-                      <div id="ko" class="p-2 text-center w-1/3 cursor-pointer hover:text-blue-500 transition ease-in-out bg-black bg-opacity-5 rounded-lg
-                      " style=""                onclick="swbt('ko')">
-                        <h1 class="text-3xl">Kontak</h1>
-                      </div>
-                    </div>
-
-                    <div id="Dnu" class="w-full h-full p-5">
-                      <h1 class="text-5xl font-bold pb-3">NUUS</h1>
-                      
-                      <h1 class="text-2xl pt-1">Nuwe /home features.</h1>
-                      <h1 class="text-lg text-wrap max-w-[420px]">Om meer as een home te maak, gebruik /sethome [NAAM] en dan /home [NAAM] om daantoe te gaan.</h1>
-                      <h1 class="text-2xl">UnikaSMP op selfone</h1>
-                      <h1 class="text-lg text-wrap max-w-[420px]">Ek probeer nou laat UnikaSMP werk op selfone, maar ek is nie seker of ek dit kan klaar kry nie.</h1>
-
-                    </div>
-                    <div id="Dko" class="w-full h-full p-5">
-                      <h1 class="text-5xl font-bold pb-3">KONTAK VIR MY</h1>
-                      <h1 class="text-xl text-[#5865F2] font-mono">Se hallo vir my by die skool. Eenvoudig.</h1>
-                    </div>
-
-                    <div class="w-full h-full p-5"  id="Dus">
-
-
-                      <script>setInterval(function () {embed.ping("wss://craftoria.ddns.net")},60000)</script>
-
-                      <div id="title" class="transition ease-in-out w-full flex-col justify-center items-center
-                      duration-1000 opacity-0 delay-200 text-5xl minefont space-y-2 pb-16">
-                      <div class="flex justify-center items-center space-x-8 pt-8">
-                      <img src="android-chrome-192x192.png" class="w-[48px] hover:animate-spin cursor-pointer  animate-[fadeIn_300ms_ease-out_900ms_forwards] transition ease-in-out">
-                      <h1 class="font-sans font-bold" id="title">Unika<tag class="">SMP</tag></h1>
-                      </div>
-                      <h1 class="text-xl opacity-50 w-full text-center" id="wtx">Onthou om die regte naam in te tik!</h1>
-                      
-
-                    </div>
-                      
-
-                      <div class="rounded-md w-full p-2 bungee text-3xl bg-lime-500 text-black cursor-pointer text-center transition ease-in-out duration-500 hover:bg-black
-                       hover:text-lime-500 shadow-lime-700 ring-lime-600 ring-1 shadow-xl hover:shadow-2xl hover:shadow-white" onclick='launch();'
-
-                      id="lbt"><h1>SPEEL</h1></div>
-                      <h1 class="text-center w-full font-mono font-semibold pt-4">Gemaak deur Victor.</h1>
-                    </div>
-
-
-
-                </div>
-                
-        </div>
-                    <script>
-                      function swbt(name) {
-                        els=['us','nu','ko']
-                        let i = 0;
-
-                        while (i < els.length) {
-                            var el = document.getElementById(els[i])
-                            el.style = ''
-                            var el = document.getElementById("D"+els[i])
-                            el.style='display:none'
-                            i++;
-                        }
-                        var el = document.getElementById(name)
-                        el.style = 'color:#2fb82f'
-                        var el = document.getElementById("D"+name)
-                        el.style = ''
-                        if (name=='nu') {
-                          localStorage.setItem('unikasmp.newsver',NEWSVER);
-                          elem = document.getElementById('nu');
-                          if (elem.classList.contains('animate-bounce')) {
-                            elem.classList.remove('animate-bounce')
-                            elem.classList.remove('shadow-2xl')
-                          };
-                        }
-                      }
-                      swbt('us')
-
-                      const NEWSVER = '!4!';
-                      var cv = localStorage.getItem('unikasmp.newsver');
-                      if (cv!=null) {
-                        if (cv==NEWSVER) {
-                          console.log('rming')
-                          elem = document.getElementById('nu')
-                          elem.classList.remove('animate-bounce')
-                          elem.classList.remove('shadow-2xl')
-                        } else {
-                          console.log(cv)
-                        }
-                      }
-
-                    </script>
-<script>
-function cb() {
-var element = document.getElementById('fsc');
-
-const backgroundImages = [
-'l2.png','l3.png','l4.png','l5.png','l6.png','l7.png','l8.png','l9.png','l10.png','l11.png'
-    // Add more image URLs as needed
-];
-
-// Function to get a random background image URL
-function getRandomBackgroundImage() {
-    const randomIndex = Math.floor(Math.random() * backgroundImages.length);
-    return backgroundImages[randomIndex];
-}
-
-// Get a random background image URL
-const bg = getRandomBackgroundImage();
-
-// Construct the class name with the random background image URL
-const bgClassName = `url("${bg}")`;
-
-// Add the class to the element
-// element.classList.add(bgClassName);
-element.style.backgroundImage = bgClassName;
-};
-
-cb();
-
-
-
-
-
-
-
-
-var storedUser = localStorage.getItem('acceptedlogin');
-if (storedUser !== null) {
-
-
-} else {
-  localStorage.setItem("acceptedlogin","e")
- // window.location.href = '/helplogin.html'
-}
-function bgsa() {
-setTimeout(() => {
-  var element = document.getElementById('puw');
-element.classList.remove('opacity-0');
-element.classList.remove('translate-y-32');
-
-setTimeout(() => {
-  var element = document.getElementById('lbt');
-element.classList.remove('opacity-0');
-}, 500);
-
-var element = document.getElementById('title');
-element.classList.remove('opacity-0');
-
-}, 50);
-
-}
-
-setTimeout(() => {
-  bgsa()
-}, 50);
-
-function launch(){
-  var element = document.getElementById('puw');
-element.classList.add('opacity-0');
-element.classList.add('-translate-y-64');
-
-
-setTimeout(() => {
-  var element = document.getElementById('fsc');
-  element.classList.add('opacity-0');
-}, 500);
-  setTimeout(() => {window.location.href="client.html#justlaunched"},1700)
-}
-
-</script>
-<script>
-  //const zlib = require('zlib');
-  var storedUser = localStorage.getItem('_eaglercraftX.p');
-  if (storedUser !== null) {
-    var compressedData = atob(storedUser)
-    console.log(compressedData)
-
-    const uint8Array = new Uint8Array(compressedData.length);
-  for (let i = 0; i < compressedData.length; i++) {
-    uint8Array[i] = compressedData.charCodeAt(i);
-  }
-
-  // Decompress the data
-  const decompressedData = pako.inflate(uint8Array);
-  console.log(decompressedData);
-  let byteString = "b'";
-  for (let i = 0; i < decompressedData.length; i++) {
-    const byteValue = decompressedData[i];
-    if (byteValue >= 32 && byteValue <= 126 && byteValue !== 92) { // printable ASCII characters
-      byteString += String.fromCharCode(byteValue);
-    } else { // non-printable characters
-      byteString += "\\x" + byteValue.toString(16).padStart(2, "0");
+    <style>
+    .fullscreen-bg {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        overflow: hidden;
+        z-index: -100;
     }
-  }
-  byteString += "'";
+    
+    .fullscreen-bg__video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 
-  console.log(byteString);
-function extractUsername(byteString) {
-  // Remove the leading "b'" and trailing "'"
-  const trimmedString = byteString.slice(2, -1);
 
-  // Create a regular expression to match the username
-  const regex = /\\x08username\\x00\\x([0-9a-fA-F]{2})([^\\]+)/;
-  
-  // Match the regex against the byte string
-  const match = trimmedString.match(regex);
 
-  // Extract the username from the match
-  if (match && match[2]) {
-    const usernameLength = parseInt(match[1], 16) * 2; // Convert hex length to byte length
-    return match[2].slice(0, usernameLength); // Extract the username based on the length
-  } else {
-    return null;
-  }
-}
-if ( extractUsername(byteString) != null ) {
-  var bs = extractUsername(byteString);
-  var element = document.getElementById('wtx');
-  element.innerText = 'Welkom terug '+bs+'!';
-}}
+    </style>
+</head>
+<body>
 
-function pings () {
-  var x = ping("wss://craftoria.ddns.net", "UnikaSMP", "UnikaSMP")
-  console.log(x)
+    <div class="fullscreen-bg z-0 fixed top-0 left-0 transition duration-1000 delay-700 ease-in-out opacity-0" id="bgv">
+        <video loop muted autoplay poster="img/videoframe.jpg" class="fullscreen-bg__video">
+            <source src="https://unikasmp.github.io/stor/ccx.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div id="odiv" class="w-screen h-screen top-0 left-0 fixed flex justify-center items-center z-5 flex-col
+    bg-black bg-opacity-30 transition duration-200 ease-in-out opacity-0 space-y-6 text-white">
+    
+        <div class="flex justify-center items-center flex-col space-y-6">
+            <h1 class="text-7xl bungee select-none"><tag class="font-mono">unika</tag>SMP</h1>
 
-}
-pings();
-</script>
+            <div class="p-2 text-white bg-black bg-opacity-80 rounded-md">
+                <h1 class="text-2xl pt-1">Nuwe /home features.</h1>
+                <h1 class="text-lg text-wrap max-w-[420px]">Om meer as een home te maak, gebruik /sethome [NAAM] en dan /home [NAAM] om daantoe te gaan.</h1>
+                <h1 class="text-2xl animate-pulse font-bold">Krag probleme</h1>
+                <h1 class="text-lg text-wrap max-w-[420px] animate-pulse">Die server het 'n paar probleme, bv die krag trip die hele tyd. So ons sal nie aanlyn die hele tyd wees nie.</h1>
+            </div>
+            <div class="w-full p-2 bg-blue-500 text-white hover:bg-white hover:text-blue-500 rounded-sm bungee text-2xl text-center cursor-pointer
+            ring-2 ring-white select-none" id="wtx"
+            onclick="window.location.href = 'client.html#justlaunched'">Speel op UnikaSMP</div>
+            <div class="w-full p-2 bg-red-500 text-white hover:bg-white hover:text-red-500 rounded-sm bungee text-2xl text-center cursor-pointer
+            ring-2 ring-white select-none hidden" id="tku"
+            onclick="tekenuit()">Teken Uit</div>
+        </div>
+    </div>
+    
+
+    <script>
+        //const zlib = require('zlib');
+        var storedUser = localStorage.getItem('_eaglercraftX.p');
+        if (storedUser !== null) {
+          var compressedData = atob(storedUser)
+          console.log(compressedData)
+      
+          const uint8Array = new Uint8Array(compressedData.length);
+        for (let i = 0; i < compressedData.length; i++) {
+          uint8Array[i] = compressedData.charCodeAt(i);
+        }
+      
+        // Decompress the data
+        const decompressedData = pako.inflate(uint8Array);
+        console.log(decompressedData);
+        let byteString = "b'";
+        for (let i = 0; i < decompressedData.length; i++) {
+          const byteValue = decompressedData[i];
+          if (byteValue >= 32 && byteValue <= 126 && byteValue !== 92) { // printable ASCII characters
+            byteString += String.fromCharCode(byteValue);
+          } else { // non-printable characters
+            byteString += "\\x" + byteValue.toString(16).padStart(2, "0");
+          }
+        }
+        byteString += "'";
+      
+        console.log(byteString);
+      function extractUsername(byteString) {
+        // Remove the leading "b'" and trailing "'"
+        const trimmedString = byteString.slice(2, -1);
+      
+        // Create a regular expression to match the username
+        const regex = /\\x08username\\x00\\x([0-9a-fA-F]{2})([^\\]+)/;
+        
+        // Match the regex against the byte string
+        const match = trimmedString.match(regex);
+      
+        // Extract the username from the match
+        if (match && match[2]) {
+          const usernameLength = parseInt(match[1], 16) * 2; // Convert hex length to byte length
+          return match[2].slice(0, usernameLength); // Extract the username based on the length
+        } else {
+          return null;
+        }
+      }
+      if ( extractUsername(byteString) != null ) {
+        var bs = extractUsername(byteString);
+        var element = document.getElementById('wtx');
+        element.innerText = 'Speel as '+bs+'';
+        document.getElementById('tku').classList.remove('hidden')
+      }}
+      function tekenuit(){
+        localStorage.removeItem('_eaglercraftX.p');
+        localStorage.removeItem('loginToken');
+        window.location.reload();
+      }
+      </script>
+    <script onload>
+        setTimeout(() => {
+            document.getElementById('bgv').classList.remove("opacity-0")
+            setTimeout(() => {
+                document.getElementById('odiv').classList.remove("opacity-0")
+            }, 0);
+        }, 500);
+    </script>
 </body>
 </html>
